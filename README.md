@@ -20,6 +20,30 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## UI components
+
+This project uses shadcn/ui with Radix UI and the `new-york-v4` registry for Tailwind CSS 4. In `components.json`, `style: "new-york"` resolves to `new-york-v4` when using Tailwind CSS 4.
+
+All 61 UI components available in that style's registry are installed in `components/ui`. The official Combobox implementation uses Base UI; the other primitive-based components use Radix UI. Blocks and examples are not included.
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function Example() {
+  return <Button>Continue</Button>
+}
+```
+
+Theme tokens are defined in `app/globals.css`; apply the `dark` class to enable the dark palette. `TooltipProvider` is configured in the root layout. Mount `Toaster` from `@/components/ui/sonner` where toast notifications are needed.
+
+To update an individual component:
+
+```bash
+npx shadcn add button
+```
+
+`@hookform/resolvers` is pinned to 5.2.2 for compatibility with Zod 4 and npm peer dependency resolution.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
