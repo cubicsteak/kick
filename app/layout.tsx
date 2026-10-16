@@ -1,16 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  JetBrains_Mono,
+  Merriweather,
+  Noto_Sans_KR,
+  Noto_Serif_KR,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Keep system fallbacks after the Korean fonts in the CSS font stacks.
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSansKr = Noto_Sans_KR({
+  variable: "--font-noto-sans-kr",
+  preload: false,
+  display: "swap",
+  adjustFontFallback: false,
+});
+
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
   subsets: ["latin"],
+  preload: false,
+  display: "swap",
+  adjustFontFallback: false,
+});
+
+const notoSerifKr = Noto_Serif_KR({
+  variable: "--font-noto-serif-kr",
+  preload: false,
+  display: "swap",
+  adjustFontFallback: false,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  preload: false,
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -22,9 +56,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${notoSansKr.variable} ${merriweather.variable} ${notoSerifKr.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-body">
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>

@@ -18,7 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses `next/font/google` to optimize and self-host its fonts. Tailwind font utilities use these Latin and Korean font stacks:
+
+- `font-body` (body default): alias of `font-sans`
+- `font-sans`: Plus Jakarta Sans + Noto Sans KR
+- `font-serif`: Merriweather + Noto Serif KR
+- `font-mono`: JetBrains Mono + Noto Sans KR
 
 ## UI components
 
@@ -34,7 +39,7 @@ export function Example() {
 }
 ```
 
-Theme tokens are defined in `app/globals.css`; apply the `dark` class to enable the dark palette. `TooltipProvider` is configured in the root layout. Mount `Toaster` from `@/components/ui/sonner` where toast notifications are needed.
+Theme tokens are defined in `app/globals.css`; apply the `dark` class to enable the dark palette. Native scrollbars follow the page theme through `color-scheme`. `TooltipProvider` is configured in the root layout. Mount `Toaster` from `@/components/ui/sonner` where toast notifications are needed.
 
 To update an individual component:
 
