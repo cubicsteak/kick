@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { ThemeSwitcher } from "@/components/theme-switcher";
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -37,6 +39,7 @@ export default function Home() {
             </a>{" "}
             center.
           </p>
+          <ThemeSwitcher />
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
